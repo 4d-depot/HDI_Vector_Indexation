@@ -13,9 +13,15 @@ Find more information on the [blog post](https://blog.4d.com/).
 
 ### Steps to Run the Project
 
-* Clone or download the GitHub repository containing the 4D project to your local machine. Need help, check out [this blog](https://blog.4d.com/github-4d-depot/).
+* Clone the GitHub repository with GitHub Desktop or Git. Need help, check out [this blog](https://blog.4d.com/github-4d-depot/).
 * Open the 4D project in your 4D software by navigating to "File > Open Project".  You can find more details [here](https://developer.4d.com/docs/GettingStarted/creating#opening-a-project).
 * Play with this HDI.
 * Navigate to the "Mode/Return to design mode" menu to view the code.
 
 By following these steps, you will be able to successfully install and run a 4D project.
+
+### Downloading Large Files
+
+The files in `Data/` are stored with Git LFS. By default, GitHub's **Download ZIP** contains small LFS pointer files instead of the actual data. Clone the repository with GitHub Desktop or Git to download the data; if the cloned files are still pointers, run `git lfs pull` in the cloned repository. Make sure Git LFS is installed.
+
+If you need a ZIP containing the data, the repository owner can enable **Include Git LFS objects in archives** under the repository's **Settings > General > Archives** on GitHub. Downloading the archive uses Git LFS bandwidth. The journal file is excluded from the repository and is not included in either download method.
