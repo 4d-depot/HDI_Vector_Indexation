@@ -4,30 +4,30 @@ var $options : Object
 var $cr : Text
 
 Case of 
-	: (Count parameters:C259=0)
+	: (Count parameters=0)
 		
 		// This is for DOT NOTATION only. Do NOT change 16R5 !!! See below for more info
 		//Modify $option variable (below) for minimal version
-		If (Application version:C493<"1800")  // 16R5
-			ALERT:C41("Sorry, this \"How do I\" (HDI) example must be used with a newer version of 4D (v17 R4 and above)"; "Quit")
-			QUIT 4D:C291
+		If (Application version<"1800")  // 16R5
+			ALERT("Sorry, this \"How do I\" (HDI) example must be used with a newer version of 4D (v17 R4 and above)"; "Quit")
+			QUIT 4D
 		Else 
-			$ps:=New process:C317(Current method name:C684; 0; Current method name:C684; 0)
+			$ps:=New process(Current method name; 0; Current method name; 0)
 		End if 
 		
 	Else 
 		
-		$cr:=Char:C90(Carriage return:K15:38)
+		$cr:=Char(Carriage return)
 		
-		If (Shift down:C543)  //  for debug purpose only
-			$win:=Open form window:C675("HDI"; Plain form window:K39:10; Horizontally centered:K39:1; Vertically centered:K39:4)
+		If (Shift down)  //  for debug purpose only
+			$win:=Open form window("HDI"; Plain form window; Horizontally centered; Vertically centered)
 		Else 
-			$win:=Open form window:C675("HDI"; Pop up form window:K39:11; Horizontally centered:K39:1; Vertically centered:K39:4)
+			$win:=Open form window("HDI"; Pop up form window; Horizontally centered; Vertically centered)
 		End if 
 		
-		$options:=New object:C1471
+		$options:=New object
 		
-		$options.title:="monitor Google and Office 365 notifications with 4D NetKit?"
+		$options.title:="use indexed 4D.Vector fields?"
 		
 		$options.blog:="blog.4d.com"
 		$options.info:="4D feature"  //ex : "4D View Pro feature"
@@ -40,17 +40,17 @@ Case of
 		// the picture size is 724 * 364
 		// these 3 commented lines can be removed when done !
 		
-		DIALOG:C40("HDI"; $options)
-		CLOSE WINDOW:C154
+		DIALOG("HDI"; $options)
+		CLOSE WINDOW
 		
 		
-		If ($options.quit=True:C214)
-			QUIT 4D:C291
+		If ($options.quit=True)
+			QUIT 4D
 		Else 
 			
-			$win:=Open form window:C675("HDI2"; Plain form window:K39:10; Horizontally centered:K39:1; Vertically centered:K39:4)
-			DIALOG:C40("HDI2")
-			CLOSE WINDOW:C154
+			$win:=Open form window("HDI2"; Plain form window; Horizontally centered; Vertically centered)
+			DIALOG("HDI2")
+			CLOSE WINDOW
 			
 		End if 
 		

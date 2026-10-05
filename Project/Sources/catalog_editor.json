@@ -8,12 +8,12 @@
 				"alpha": 0
 			},
 			"coordinates": {
-				"left": 440,
-				"top": 40,
-				"width": 236,
-				"height": 203.33203125
+				"left": 444,
+				"top": 33,
+				"width": 152,
+				"height": 210.33203125
 			},
-			"displayable_fields_count": 7
+			"displayable_fields_count": 8
 		},
 		"Prompts": {
 			"color": {
