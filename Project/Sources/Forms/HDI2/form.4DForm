@@ -1,0 +1,299 @@
+{
+	"destination": "detailScreen",
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"menuBar": "Menu Bar #1",
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onPageChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "842pt",
+		"paperHeight": "595pt"
+	},
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Tab Control": {
+					"type": "tab",
+					"top": 22,
+					"left": 23,
+					"width": 920,
+					"height": 593,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "_TabTitles",
+					"dataSourceTypeHint": "object",
+					"action": "gotoPage",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"information": {
+					"type": "input",
+					"top": 119,
+					"left": 51,
+					"width": 874,
+					"height": 480,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "Infos[0].Description",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					],
+					"fontSize": 18,
+					"fontWeight": "bold"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Trace": {
+					"type": "checkbox",
+					"text": "Trace",
+					"top": 857,
+					"left": 27,
+					"width": 117,
+					"height": 18,
+					"events": [
+						"onClick"
+					],
+					"dataSource": "Form:C1466.trace",
+					"sizingY": "move"
+				},
+				"information1": {
+					"type": "input",
+					"top": 58,
+					"left": 51,
+					"width": 864,
+					"height": 81,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "Infos[1].Description",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Check Box": {
+					"type": "checkbox",
+					"text": "Trace",
+					"top": 587,
+					"left": 30,
+					"width": 108,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"dataSourceTypeHint": "boolean",
+					"dataSource": "Form:C1466.trace",
+					"method": "ObjectMethods/Check Box.4dm"
+				},
+				"Combo Box": {
+					"type": "combo",
+					"left": 129,
+					"top": 159,
+					"width": 648,
+					"height": 32,
+					"events": [
+						"onDataChange"
+					],
+					"dataSourceTypeHint": "object",
+					"dataSource": "Form:C1466.questions",
+					"method": "ObjectMethods/Combo Box.4dm"
+				},
+				"Button": {
+					"type": "button",
+					"text": "Search with index",
+					"top": 213,
+					"left": 141,
+					"width": 218,
+					"height": 28,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button.4dm"
+				},
+				"Input": {
+					"type": "input",
+					"left": 219,
+					"top": 264,
+					"width": 108,
+					"height": 16,
+					"dataSource": "Form:C1466.indexedTimer",
+					"dataSourceTypeHint": "text"
+				},
+				"Input1": {
+					"type": "input",
+					"left": 619,
+					"top": 264,
+					"width": 108,
+					"height": 16,
+					"dataSource": "Form:C1466.nonIndexedTimer",
+					"dataSourceTypeHint": "text",
+					"method": "ObjectMethods/Input1.4dm"
+				},
+				"List Box": {
+					"type": "listbox",
+					"left": 84,
+					"top": 303,
+					"width": 332,
+					"height": 259,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"dataSource": "Form:C1466.indexedResult",
+					"method": "ObjectMethods/List Box.4dm",
+					"listboxType": "collection",
+					"columns": [
+						{
+							"header": {
+								"name": "Header3",
+								"text": "Id"
+							},
+							"name": "Column3",
+							"footer": {
+								"name": "Footer3"
+							},
+							"width": 52,
+							"dataSource": "This:C1470.ID"
+						},
+						{
+							"header": {
+								"text": "Text",
+								"name": "Header1"
+							},
+							"name": "Column1",
+							"footer": {
+								"name": "Footer1"
+							},
+							"width": 316,
+							"dataSource": "This:C1470.Text"
+						}
+					]
+				},
+				"List Box1": {
+					"type": "listbox",
+					"left": 492,
+					"top": 303,
+					"width": 332,
+					"height": 259,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"dataSource": "Form:C1466.nonIndexedResult",
+					"listboxType": "collection",
+					"columns": [
+						{
+							"header": {
+								"name": "Header4",
+								"text": "Id"
+							},
+							"name": "Column4",
+							"footer": {
+								"name": "Footer4"
+							},
+							"dataSource": "This:C1470.ID",
+							"width": 52
+						},
+						{
+							"header": {
+								"text": "Text",
+								"name": "Header2"
+							},
+							"name": "Column2",
+							"footer": {
+								"name": "Footer2"
+							},
+							"width": 316,
+							"dataSource": "This:C1470.Text"
+						}
+					]
+				},
+				"Button1": {
+					"type": "button",
+					"text": "Search without index",
+					"top": 213,
+					"left": 549,
+					"width": 218,
+					"height": 28,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button1.4dm"
+				},
+				"Texte": {
+					"type": "text",
+					"text": "Time:",
+					"top": 264,
+					"left": 115,
+					"width": 91,
+					"height": 15,
+					"textAlign": "right"
+				},
+				"Texte1": {
+					"type": "text",
+					"text": "Time:",
+					"top": 264,
+					"left": 518,
+					"width": 91,
+					"height": 15,
+					"textAlign": "right"
+				},
+				"Texte2": {
+					"type": "text",
+					"text": "Select a prompt:",
+					"top": 141,
+					"left": 132,
+					"width": 201,
+					"height": 15
+				}
+			}
+		}
+	],
+	"geometryStamp": 2173,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"width": 960,
+	"height": 640
+}

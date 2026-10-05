@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="HDI_Vector_Indexation" uuid="140903C5A44A441BA2C1C3300299B4AA" collation_locale="fr">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="INFO" uuid="EB00C636116141A59FA5380A4DD8BCCF" id="1">
+		<field name="ID" uuid="65C71743A20E40AA810B27FC6713572F" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="PageNumber" uuid="A853308E9BB24A42B37C9C8EFDC39E8F" type="4" id="2"/>
+		<field name="TabTitle" uuid="E7CA068128BB4764BBE2E79252490272" type="10" limiting_length="255" id="3"/>
+		<field name="Description" uuid="72351570458145C99DA8A30B4A6599CC" type="10" id="4"/>
+		<primary_key field_name="ID" field_uuid="65C71743A20E40AA810B27FC6713572F"/>
+	</table>
+	<table name="Prompts" uuid="96E9738881C648BA8BF1CA490DEE6767" id="2">
+		<field name="ID" uuid="9A7AC2D753B84CEEACA88FC1CCA4C1BC" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="Prompt" uuid="BA85D7897CCE448183F98CE96B0253A7" type="10" limiting_length="255" id="2"/>
+		<field name="Vector" uuid="E33AF73A48E74CEB84A007F2BE7D7686" type="21" blob_switch_size="2147483647" id="3">
+			<field_extra class_id="4D.Vector"/>
+		</field>
+		<field name="EmbeddingModel" uuid="01D9156FE9FF4F7B9A67F7352E77699F" type="10" limiting_length="255" id="4"/>
+		<primary_key field_name="ID" field_uuid="9A7AC2D753B84CEEACA88FC1CCA4C1BC"/>
+	</table>
+	<table name="Data" uuid="36BC078368CE4C77AF6E14F2942DFB2B" id="3">
+		<field name="ID" uuid="CF65BACD9ED648BEA33AFB64AA853ADE" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="Text" uuid="8CCA0321CB7844BEAF077E7E49F2C1C1" type="10" id="2"/>
+		<field name="IndexedVector" uuid="5D0AA928603149A1BE95D556E45591C7" type="21" blob_switch_size="2147483647" id="3">
+			<field_extra class_id="4D.Vector"/>
+		</field>
+		<field name="NonIndexedVector" uuid="82526A82BA6D417EAE04783123ACC2C4" type="21" blob_switch_size="2147483647" id="4">
+			<field_extra class_id="4D.Vector"/>
+		</field>
+		<field name="EmbeddingModel" uuid="F7F4765A61DB45DFA1F6426CA04BF8C0" type="10" limiting_length="255" id="5"/>
+		<primary_key field_name="ID" field_uuid="CF65BACD9ED648BEA33AFB64AA853ADE"/>
+	</table>
+	<index kind="regular" uuid="7BAD1A89178C4841A824781F3FBD752B" type="7">
+		<field_ref uuid="BA85D7897CCE448183F98CE96B0253A7" name="Prompt">
+			<table_ref uuid="96E9738881C648BA8BF1CA490DEE6767" name="Prompts"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="C3616E2C674244059728BCF9F7F4E3A7" type="7">
+		<field_ref uuid="9A7AC2D753B84CEEACA88FC1CCA4C1BC" name="ID">
+			<table_ref uuid="96E9738881C648BA8BF1CA490DEE6767" name="Prompts"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="E9F5D29C108043D6BAE3044EE185829A" type="7">
+		<field_ref uuid="65C71743A20E40AA810B27FC6713572F" name="ID">
+			<table_ref uuid="EB00C636116141A59FA5380A4DD8BCCF" name="INFO"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="F4C8E1228BEF461984663E60E1603D04" type="7">
+		<field_ref uuid="CF65BACD9ED648BEA33AFB64AA853ADE" name="ID">
+			<table_ref uuid="36BC078368CE4C77AF6E14F2942DFB2B" name="Data"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="FF07FEFF18A14D54847C91217C4A97E2" type="20">
+		<field_ref uuid="5D0AA928603149A1BE95D556E45591C7" name="IndexedVector">
+			<table_ref uuid="36BC078368CE4C77AF6E14F2942DFB2B" name="Data"/>
+		</field_ref>
+	</index>
+	<base_extra>
+		<journal_file journal_file_enabled="true"/>
+	</base_extra>
+</base>
