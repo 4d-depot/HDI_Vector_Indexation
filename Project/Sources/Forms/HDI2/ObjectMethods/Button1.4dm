@@ -1,17 +1,17 @@
 
-Form:C1466.nonIndexedResult:=[]
+Form.nonIndexedResult:=[]
 
-Form:C1466.nonIndexedTimer:=0
+Form.nonIndexedTimer:=0
 
-If (Form:C1466.trace)
-	TRACE:C157
+If (Form.trace)
+	TRACE
 End if 
 
 
-var $param:={vector: Form:C1466.currentQuestion.Vector; metric: "cosine"; threshold: 0.6}
+var $param:={vector: Form.currentQuestion.Vector; metric: "cosine"; threshold: 0.7}
 
-var $timer:=Current time:C178()
+var $timer:=Current time()
 
-Form:C1466.nonIndexedResult:=ds:C1482.Data.query("NonIndexedVector>=:1 order by NonIndexedVector desc"; $param)
+Form.nonIndexedResult:=ds.Data.query("NonIndexedVector>=:1 order by NonIndexedVector desc"; $param)
 
-Form:C1466.nonIndexedTimer:=Current time:C178()-$timer
+Form.nonIndexedTimer:=Current time()-$timer

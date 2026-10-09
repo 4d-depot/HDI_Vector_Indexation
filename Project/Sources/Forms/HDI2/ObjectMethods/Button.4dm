@@ -1,16 +1,16 @@
 
-Form:C1466.indexedResult:=[]
+Form.indexedResult:=[]
 
-Form:C1466.indexedTimer:=0
+Form.indexedTimer:=0
 
-If (Form:C1466.trace)
-	TRACE:C157
+If (Form.trace)
+	TRACE
 End if 
 
-var $param:={vector: Form:C1466.currentQuestion.Vector; metric: "cosine"; threshold: 0.6}
+var $param:={vector: Form.currentQuestion.Vector; metric: "cosine"; threshold: 0.7}
 
-var $timer:=Current time:C178()
+var $timer:=Current time()
 
-Form:C1466.indexedResult:=ds:C1482.Data.query("IndexedVector>=:1 order by IndexedVector desc"; $param)
+Form.indexedResult:=ds.Data.query("IndexedVector>=:1 order by IndexedVector desc"; $param)
 
-Form:C1466.indexedTimer:=Current time:C178()-$timer
+Form.indexedTimer:=Current time()-$timer
